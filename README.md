@@ -1,5 +1,5 @@
 # k8s-custom-resources
-A project containing all custom resources used by HPE
+A project containing all custom resource definitions used by HPE
 
 Requirements for generating new CRDs.
 
@@ -28,7 +28,7 @@ type NewTypeSpec struct {
 #### 2. Generate client, informers, and listers:
 
 * Download https://github.com/kubernetes/code-generator
-* Run ./code-generator/generate-groups.sh all github.rtplab.nimblestorage.com/dcs/k8s/crds/pkg/apis/hpestorage/v1 github.rtplab.nimblestorage.com/dcs/k8s/crds/pkg "hpestorage:v1"
+* Run ./code-generator/generate-groups.sh all github.com/hpe-storage/k8s-custom-resources/pkg/apis/hpestorage/v1 github.com/hpe-storage/k8s-custom-resources/crds/pkg "hpestorage:v1"
 
 #### 3. Add the CRD definition to our yaml deployment file:
 
