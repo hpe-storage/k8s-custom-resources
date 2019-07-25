@@ -1,5 +1,5 @@
 # k8s-custom-resources
-A project containing all custom resources used by HPE
+A project containing all custom resource definitions used by HPE
 
 Requirements for generating new CRDs.
 
