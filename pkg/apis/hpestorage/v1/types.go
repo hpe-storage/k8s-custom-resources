@@ -32,6 +32,6 @@ type HPENodeInfoSpec struct {
 	IQNs         []string `json:"iqns,omitempty"`
 	Networks     []string `json:"networks,omitempty"`
 	WWPNs        []string `json:"wwpns,omitempty"`
-	ChapUser     string   `json:"ChapUser,omitempty"`
-	ChapPassword string   `json:"ChapPassword,omitempty"`
+	ChapUser     string   `json:"chap_user,omitempty"`
+	ChapPassword string   `json:"chap_password,omitempty"`
 }

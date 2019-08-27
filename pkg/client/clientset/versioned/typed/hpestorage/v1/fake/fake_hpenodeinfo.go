@@ -74,7 +74,7 @@ func (c *FakeHPENodeInfos) Watch(opts v1.ListOptions) (watch.Interface, error) {
 		InvokesWatch(testing.NewRootWatchAction(hpenodeinfosResource, opts))
 }
 
-// nolint : dupl
+// nolint: dupl
 // Create takes the representation of a hPENodeInfo and creates it.  Returns the server's representation of the hPENodeInfo, and an error, if there is any.
 func (c *FakeHPENodeInfos) Create(hPENodeInfo *hpestoragev1.HPENodeInfo) (result *hpestoragev1.HPENodeInfo, err error) {
 	obj, err := c.Fake.
@@ -85,7 +85,7 @@ func (c *FakeHPENodeInfos) Create(hPENodeInfo *hpestoragev1.HPENodeInfo) (result
 	return obj.(*hpestoragev1.HPENodeInfo), err
 }
 
-// nolint : dupl
+// nolint: dupl
 // Update takes the representation of a hPENodeInfo and updates it. Returns the server's representation of the hPENodeInfo, and an error, if there is any.
 func (c *FakeHPENodeInfos) Update(hPENodeInfo *hpestoragev1.HPENodeInfo) (result *hpestoragev1.HPENodeInfo, err error) {
 	obj, err := c.Fake.

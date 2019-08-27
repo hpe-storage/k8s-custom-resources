@@ -31,7 +31,7 @@ import (
 
 var scheme = runtime.NewScheme()
 var codecs = serializer.NewCodecFactory(scheme)
-var ParameterCodec = runtime.NewParameterCodec(scheme)
+var parameterCodec = runtime.NewParameterCodec(scheme)
 var localSchemeBuilder = runtime.SchemeBuilder{
 	storagev1.AddToScheme,
 }
