@@ -26,7 +26,6 @@ import (
 	"encoding/pem"
 	"fmt"
 	"io/ioutil"
-	"math"
 	"math/big"
 	"net"
 	"path/filepath"
@@ -34,7 +33,6 @@ import (
 	"time"
 
 	"k8s.io/client-go/util/keyutil"
-	netutils "k8s.io/utils/net"
 )
 
 const duration365d = time.Hour * 24 * 365
@@ -45,7 +43,6 @@ type Config struct {
 	Organization []string
 	AltNames     AltNames
 	Usages       []x509.ExtKeyUsage
-	NotBefore    time.Time
 }
 
 // AltNames contains the domain names and IP addresses that will be added
@@ -59,24 +56,13 @@ type AltNames struct {
 // NewSelfSignedCACert creates a CA certificate
 func NewSelfSignedCACert(cfg Config, key crypto.Signer) (*x509.Certificate, error) {
 	now := time.Now()
-	// returns a uniform random value in [0, max-1), then add 1 to serial to make it a uniform random value in [1, max).
-	serial, err := cryptorand.Int(cryptorand.Reader, new(big.Int).SetInt64(math.MaxInt64-1))
-	if err != nil {
-		return nil, err
-	}
-	serial = new(big.Int).Add(serial, big.NewInt(1))
-	notBefore := now.UTC()
-	if !cfg.NotBefore.IsZero() {
-		notBefore = cfg.NotBefore.UTC()
-	}
 	tmpl := x509.Certificate{
-		SerialNumber: serial,
+		SerialNumber: new(big.Int).SetInt64(0),
 		Subject: pkix.Name{
 			CommonName:   cfg.CommonName,
 			Organization: cfg.Organization,
 		},
-		DNSNames:              []string{cfg.CommonName},
-		NotBefore:             notBefore,
+		NotBefore:             now.UTC(),
 		NotAfter:              now.Add(duration365d * 10).UTC(),
 		KeyUsage:              x509.KeyUsageKeyEncipherment | x509.KeyUsageDigitalSignature | x509.KeyUsageCertSign,
 		BasicConstraintsValid: true,
@@ -128,14 +114,9 @@ func GenerateSelfSignedCertKeyWithFixtures(host string, alternateIPs []net.IP, a
 	if err != nil {
 		return nil, nil, err
 	}
-	// returns a uniform random value in [0, max-1), then add 1 to serial to make it a uniform random value in [1, max).
-	serial, err := cryptorand.Int(cryptorand.Reader, new(big.Int).SetInt64(math.MaxInt64-1))
-	if err != nil {
-		return nil, nil, err
-	}
-	serial = new(big.Int).Add(serial, big.NewInt(1))
+
 	caTemplate := x509.Certificate{
-		SerialNumber: serial,
+		SerialNumber: big.NewInt(1),
 		Subject: pkix.Name{
 			CommonName: fmt.Sprintf("%s-ca@%d", host, time.Now().Unix()),
 		},
@@ -161,14 +142,9 @@ func GenerateSelfSignedCertKeyWithFixtures(host string, alternateIPs []net.IP, a
 	if err != nil {
 		return nil, nil, err
 	}
-	// returns a uniform random value in [0, max-1), then add 1 to serial to make it a uniform random value in [1, max).
-	serial, err = cryptorand.Int(cryptorand.Reader, new(big.Int).SetInt64(math.MaxInt64-1))
-	if err != nil {
-		return nil, nil, err
-	}
-	serial = new(big.Int).Add(serial, big.NewInt(1))
+
 	template := x509.Certificate{
-		SerialNumber: serial,
+		SerialNumber: big.NewInt(2),
 		Subject: pkix.Name{
 			CommonName: fmt.Sprintf("%s@%d", host, time.Now().Unix()),
 		},
@@ -180,7 +156,7 @@ func GenerateSelfSignedCertKeyWithFixtures(host string, alternateIPs []net.IP, a
 		BasicConstraintsValid: true,
 	}
 
-	if ip := netutils.ParseIPSloppy(host); ip != nil {
+	if ip := net.ParseIP(host); ip != nil {
 		template.IPAddresses = append(template.IPAddresses, ip)
 	} else {
 		template.DNSNames = append(template.DNSNames, host)
