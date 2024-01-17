@@ -55,6 +55,6 @@ replace k8s.io/apimachinery => k8s.io/apimachinery v0.20.15
 
 replace k8s.io/client-go => k8s.io/client-go v0.20.15
 
-replace github.com/googleapis/gnostic => github.com/google/gnostic v0.5.5
+// replace github.com/googleapis/gnostic => github.com/google/gnostic v0.5.5
 
-replace github.com/googleapis/gnosticmodels => github.com/google/gnosticmodels v0.5.5
+// replace github.com/googleapis/gnosticmodels => github.com/google/gnosticmodels v0.5.5
