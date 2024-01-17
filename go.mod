@@ -48,6 +48,8 @@ require (
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
 
+replace github.com/googleapis/gnostic => github.com/googleapis/gnostic v0.5.5
+
 replace k8s.io/kube-openapi => k8s.io/kube-openapi v0.0.0-20211115234752-e816edb12b65
 
 replace k8s.io/api => k8s.io/api v0.25.16
