@@ -53,8 +53,12 @@ require (
 
 // replace k8s.io/kube-openapi => k8s.io/kube-openapi v0.0.0-20211115234752-e816edb12b65
 
-replace k8s.io/api => k8s.io/api v0.24.17
+replace k8s.io/api => k8s.io/api v0.25.16
 
-replace k8s.io/apimachinery => k8s.io/apimachinery v0.24.17
+replace k8s.io/apimachinery => k8s.io/apimachinery v0.25.16
 
-replace k8s.io/client-go => k8s.io/client-go v0.24.17
+replace k8s.io/client-go => k8s.io/client-go v0.25.16
+
+replace github.com/googleapis/gnostic => github.com/googleapis/gnostic v0.5.5
+
+replace github.com/googleapis/gnosticmodels => github.com/googleapis/gnosticmodels v0.5.5

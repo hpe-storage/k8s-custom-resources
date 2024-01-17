@@ -162,7 +162,7 @@ gopkg.in/yaml.v2
 # gopkg.in/yaml.v3 v3.0.1
 ## explicit
 gopkg.in/yaml.v3
-# k8s.io/api v0.29.0 => k8s.io/api v0.24.17
+# k8s.io/api v0.29.0 => k8s.io/api v0.25.16
 ## explicit; go 1.19
 k8s.io/api/admissionregistration/v1
 k8s.io/api/admissionregistration/v1beta1
@@ -194,6 +194,7 @@ k8s.io/api/flowcontrol/v1alpha1
 k8s.io/api/flowcontrol/v1beta1
 k8s.io/api/flowcontrol/v1beta2
 k8s.io/api/networking/v1
+k8s.io/api/networking/v1alpha1
 k8s.io/api/networking/v1beta1
 k8s.io/api/node/v1
 k8s.io/api/node/v1alpha1
@@ -209,7 +210,7 @@ k8s.io/api/scheduling/v1beta1
 k8s.io/api/storage/v1
 k8s.io/api/storage/v1alpha1
 k8s.io/api/storage/v1beta1
-# k8s.io/apimachinery v0.29.0 => k8s.io/apimachinery v0.24.17
+# k8s.io/apimachinery v0.29.0 => k8s.io/apimachinery v0.25.16
 ## explicit; go 1.19
 k8s.io/apimachinery/pkg/api/errors
 k8s.io/apimachinery/pkg/api/meta
@@ -252,7 +253,7 @@ k8s.io/apimachinery/pkg/version
 k8s.io/apimachinery/pkg/watch
 k8s.io/apimachinery/third_party/forked/golang/json
 k8s.io/apimachinery/third_party/forked/golang/reflect
-# k8s.io/client-go v0.29.0 => k8s.io/client-go v0.24.17
+# k8s.io/client-go v0.29.0 => k8s.io/client-go v0.25.16
 ## explicit; go 1.19
 k8s.io/client-go/discovery
 k8s.io/client-go/discovery/fake
@@ -316,6 +317,8 @@ sigs.k8s.io/structured-merge-diff/v4/value
 # sigs.k8s.io/yaml v1.3.0
 ## explicit; go 1.12
 sigs.k8s.io/yaml
-# k8s.io/api => k8s.io/api v0.24.17
-# k8s.io/apimachinery => k8s.io/apimachinery v0.24.17
-# k8s.io/client-go => k8s.io/client-go v0.24.17
+# k8s.io/api => k8s.io/api v0.25.16
+# k8s.io/apimachinery => k8s.io/apimachinery v0.25.16
+# k8s.io/client-go => k8s.io/client-go v0.25.16
+# github.com/googleapis/gnostic => github.com/googleapis/gnostic v0.5.5
+# github.com/googleapis/gnosticmodels => github.com/googleapis/gnosticmodels v0.5.5
