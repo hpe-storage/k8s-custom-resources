@@ -49,6 +49,8 @@ require (
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
 
+replace github.com/googleapis/gnostic => github.com/google/gnostic v0.4.2
+
 replace k8s.io/api => k8s.io/api v0.25.16
 
 replace k8s.io/apimachinery => k8s.io/apimachinery v0.26.0-alpha.0

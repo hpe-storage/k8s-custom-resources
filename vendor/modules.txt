@@ -317,6 +317,7 @@ sigs.k8s.io/structured-merge-diff/v4/value
 # sigs.k8s.io/yaml v1.3.0
 ## explicit; go 1.12
 sigs.k8s.io/yaml
+# github.com/googleapis/gnostic => github.com/google/gnostic v0.4.2
 # k8s.io/api => k8s.io/api v0.25.16
 # k8s.io/apimachinery => k8s.io/apimachinery v0.26.0-alpha.0
 # k8s.io/client-go => k8s.io/client-go v0.25.16
