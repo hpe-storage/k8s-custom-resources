@@ -32,4 +32,5 @@ type HPENodeInfoSpec struct {
 	IQNs     []string `json:"iqns,omitempty"`
 	Networks []string `json:"networks,omitempty"`
 	WWPNs    []string `json:"wwpns,omitempty"`
+	NQNs     []string `json:"nqns,omitempty"`
 }
